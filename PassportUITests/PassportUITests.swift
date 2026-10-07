@@ -4,6 +4,7 @@ final class PassportUITests: XCTestCase {
     func testMemorySurvivesRelaunchAndExports() {
         let app = XCUIApplication()
         app.launch()
+        app.tabBars.buttons["Notebook"].tap()
         app.buttons["Add memory"].tap()
         let editor = app.textViews["Memory text"]
         XCTAssertTrue(editor.waitForExistence(timeout: 5))
@@ -12,9 +13,22 @@ final class PassportUITests: XCTestCase {
         editor.typeText(note)
         app.buttons["Save"].tap()
         XCTAssertTrue(app.staticTexts[note].waitForExistence(timeout: 5))
+        app.tabBars.buttons["Map"].tap()
+        let projectNode = app.buttons["project: Personal"]
+        XCTAssertTrue(projectNode.waitForExistence(timeout: 5))
+        projectNode.tap()
+        XCTAssertTrue(app.buttons["Use this context"].exists)
+        let mapShot = XCTAttachment(screenshot: app.screenshot())
+        mapShot.name = "Memory map"
+        mapShot.lifetime = .keepAlways
+        add(mapShot)
         app.terminate()
         app.launch()
+        app.tabBars.buttons["Notebook"].tap()
         XCTAssertTrue(app.staticTexts[note].waitForExistence(timeout: 5))
+        let search = app.textFields["Find a memory"]
+        search.tap()
+        search.typeText(note + "\n")
         app.swipeUp()
         let prepare = app.buttons["Prepare AI context"]
         XCTAssertTrue(prepare.waitForExistence(timeout: 5))
@@ -30,6 +44,10 @@ final class PassportUITests: XCTestCase {
         app.swipeDown()
         app.buttons["Delete"].firstMatch.tap()
         app.buttons["Delete memory"].tap()
+        XCTAssertFalse(app.staticTexts[note].exists)
+        app.terminate()
+        app.launch()
+        app.tabBars.buttons["Notebook"].tap()
         XCTAssertFalse(app.staticTexts[note].exists)
     }
 }

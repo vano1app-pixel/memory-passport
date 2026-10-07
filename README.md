@@ -1,6 +1,6 @@
 # Memory Passport — local edition
 
-Native iPhone/iPad notebook for carrying user-approved context between AI conversations. No dependencies, backend, analytics, account connection, model calls or payments. Text import, project filtering, search, edit/delete, atomic protected-file persistence, context copy and export.
+Native iPhone/iPad visual memory map for carrying user-approved context between AI conversations. Map nodes connect memories to their projects and sources; tap a node to inspect or export its context. Notebook handles text import, project filtering, search and edit/delete. Sources labels distinguish manual imports from account connections. No dependencies, backend, analytics, account connection, model calls or payments. Atomic protected-file persistence, context copy and export.
 
 Generate: `xcodegen generate`. Build the MemoryPassport scheme for iOS Simulator. Bundle identifier is provisional and unregistered.
 

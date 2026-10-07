@@ -42,7 +42,13 @@ struct Memory: Identifiable, Codable, Equatable {
 
 @main struct PassportApp: App {
     @StateObject private var notebook = Notebook()
-    var body: some Scene { WindowGroup { NotebookView().environmentObject(notebook) } }
+    var body: some Scene { WindowGroup {
+        TabView {
+            MemoryMapView().tabItem { Label("Map", systemImage: "point.3.connected.trianglepath.dotted") }
+            NotebookView().tabItem { Label("Notebook", systemImage: "book.closed") }
+            SourcesView().tabItem { Label("Sources", systemImage: "link") }
+        }.tint(Color(red: 0.12, green: 0.28, blue: 0.22)).environmentObject(notebook)
+    } }
 }
 
 struct NotebookView: View {
@@ -103,9 +109,10 @@ struct NotebookView: View {
             .toolbar { ToolbarItem(placement: .topBarTrailing) { Text("LOCAL EDITION").font(.caption2).foregroundStyle(.secondary) } }
             .sheet(item: $draft) { MemoryEditor(memory: $0) }
             .sheet(isPresented: $showingBrief) { ContextPreview(text: notebook.brief(entries)) }
-            .confirmationDialog("Delete this memory?", isPresented: $confirmDelete) {
-                Button("Delete memory", role: .destructive) { if let memory = deleting { notebook.remove(memory) }; deleting = nil }
-            }
+            .alert("Delete this memory?", isPresented: $confirmDelete, presenting: deleting) { memory in
+                Button("Delete memory", role: .destructive) { notebook.remove(memory) }
+                Button("Cancel", role: .cancel) { }
+            } message: { _ in Text("This removes it from your local notebook.") }
             .alert("Notebook", isPresented: Binding(get: { notebook.error != nil }, set: { if !$0 { notebook.error = nil } })) { Button("OK") { notebook.error = nil } } message: { Text(notebook.error ?? "") }
             .fileImporter(isPresented: $importing, allowedContentTypes: [.plainText], allowsMultipleSelection: false) { result in
                 do {
