@@ -42,12 +42,13 @@ struct Memory: Identifiable, Codable, Equatable {
 
 @main struct PassportApp: App {
     @StateObject private var notebook = Notebook()
+    @StateObject private var pro = PassportPro()
     var body: some Scene { WindowGroup {
         TabView {
             MemoryMapView().tabItem { Label("Map", systemImage: "point.3.connected.trianglepath.dotted") }
             NotebookView().tabItem { Label("Notebook", systemImage: "book.closed") }
             SourcesView().tabItem { Label("Sources", systemImage: "link") }
-        }.tint(Color(red: 0.12, green: 0.28, blue: 0.22)).environmentObject(notebook)
+        }.tint(Color(red: 0.12, green: 0.28, blue: 0.22)).environmentObject(notebook).environmentObject(pro)
     } }
 }
 
@@ -130,8 +131,10 @@ struct NotebookView: View {
 
 struct MemoryEditor: View {
     @EnvironmentObject var notebook: Notebook
+    @EnvironmentObject var pro: PassportPro
     @Environment(\.dismiss) var dismiss
     @State var memory: Memory
+    @State private var showPro = false
     var body: some View {
         NavigationStack {
             Form {
@@ -146,6 +149,7 @@ struct MemoryEditor: View {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
+                        if pro.product != nil && !pro.active && notebook.memories.count >= 30 && !notebook.memories.contains(where: { $0.id == memory.id }) { showPro = true; return }
                         memory.text = memory.text.trimmingCharacters(in: .whitespacesAndNewlines)
                         memory.project = memory.project.trimmingCharacters(in: .whitespacesAndNewlines)
                         memory.source = memory.source.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -156,6 +160,7 @@ struct MemoryEditor: View {
                     }.disabled(memory.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || memory.project.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
             }
+            .sheet(isPresented: $showPro) { PassportProView() }
         }
     }
 }

@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22AB6DC24B338E3942CF562C /* SubscriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B11E05374F5BC04D4140B /* SubscriptionTests.swift */; };
+		37FCE98CE1BD61F98F7FD75A /* PassportPro.storekit in Resources */ = {isa = PBXBuildFile; fileRef = AC91E46504086CD2396660E8 /* PassportPro.storekit */; };
 		4041D8D9D04E1227C9D59F7A /* PassportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D1BF22D9BEB60237223656 /* PassportUITests.swift */; };
+		6A8EB2F048AE9177974CD05B /* PassportPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062413A7CDAB05683154D25F /* PassportPro.swift */; };
 		862C087FD2EB8EE1DF0702B8 /* MemoryMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D4563FC5C268A77006CF6 /* MemoryMap.swift */; };
 		D88A27B51023BB9155B72E64 /* MemoryPassport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3BFA323D196717DAFA6867 /* MemoryPassport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		139100CBB24ED442FAC18858 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29DE36FD221A9C809BAADEAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6633104D69B8155814E265D;
+			remoteInfo = MemoryPassport;
+		};
 		583AEA845FF185D23C937043 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29DE36FD221A9C809BAADEAC /* Project object */;
@@ -23,9 +33,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		062413A7CDAB05683154D25F /* PassportPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportPro.swift; sourceTree = "<group>"; };
+		0E3B11E05374F5BC04D4140B /* SubscriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTests.swift; sourceTree = "<group>"; };
 		2B6B8E2461246897639292EA /* MemoryPassport.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = MemoryPassport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D1BF22D9BEB60237223656 /* PassportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportUITests.swift; sourceTree = "<group>"; };
 		4F2D4563FC5C268A77006CF6 /* MemoryMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryMap.swift; sourceTree = "<group>"; };
+		80E8BF2660E0077901E2EB64 /* PassportTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PassportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC91E46504086CD2396660E8 /* PassportPro.storekit */ = {isa = PBXFileReference; path = PassportPro.storekit; sourceTree = "<group>"; };
 		DA3BFA323D196717DAFA6867 /* MemoryPassport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPassport.swift; sourceTree = "<group>"; };
 		F0F9A15BCBB1A200D76053E0 /* PassportUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PassportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -35,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				2B6B8E2461246897639292EA /* MemoryPassport.app */,
+				80E8BF2660E0077901E2EB64 /* PassportTests.xctest */,
 				F0F9A15BCBB1A200D76053E0 /* PassportUITests.xctest */,
 			);
 			name = Products;
@@ -45,6 +60,7 @@
 			children = (
 				4F2D4563FC5C268A77006CF6 /* MemoryMap.swift */,
 				DA3BFA323D196717DAFA6867 /* MemoryPassport.swift */,
+				062413A7CDAB05683154D25F /* PassportPro.swift */,
 			);
 			path = Passport;
 			sourceTree = "<group>";
@@ -60,10 +76,20 @@
 		91F81B3FC8A3F7B8E82EBAA8 = {
 			isa = PBXGroup;
 			children = (
+				AC91E46504086CD2396660E8 /* PassportPro.storekit */,
 				49B8E147A158FE96D7364148 /* Passport */,
+				98207419F7CE2AD0D3D8F875 /* PassportTests */,
 				5C16CEB8648700031C7DDB96 /* PassportUITests */,
 				0717B8D4CDA3ABFDEF7EBAF2 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		98207419F7CE2AD0D3D8F875 /* PassportTests */ = {
+			isa = PBXGroup;
+			children = (
+				0E3B11E05374F5BC04D4140B /* SubscriptionTests.swift */,
+			);
+			path = PassportTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +130,25 @@
 			productReference = 2B6B8E2461246897639292EA /* MemoryPassport.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F50EA64819D334F10E12CA51 /* PassportTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50085E818DB7D2768E2E5B25 /* Build configuration list for PBXNativeTarget "PassportTests" */;
+			buildPhases = (
+				EA28159BF1C3F10256009EAC /* Sources */,
+				9D1C5A90FA6739D4F92EE087 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1C729014F34A86BE108AEF4 /* PBXTargetDependency */,
+			);
+			name = PassportTests;
+			packageProductDependencies = (
+			);
+			productName = PassportTests;
+			productReference = 80E8BF2660E0077901E2EB64 /* PassportTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -134,9 +179,21 @@
 			targets = (
 				B6633104D69B8155814E265D /* MemoryPassport */,
 				37BC9B3F5999ADBC03813074 /* PassportUITests */,
+				F50EA64819D334F10E12CA51 /* PassportTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9D1C5A90FA6739D4F92EE087 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37FCE98CE1BD61F98F7FD75A /* PassportPro.storekit in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79796915778728C55287C42C /* Sources */ = {
@@ -147,12 +204,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EA28159BF1C3F10256009EAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22AB6DC24B338E3942CF562C /* SubscriptionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBF4DF3CCCBA8C5122856F2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				862C087FD2EB8EE1DF0702B8 /* MemoryMap.swift in Sources */,
 				D88A27B51023BB9155B72E64 /* MemoryPassport.swift in Sources */,
+				6A8EB2F048AE9177974CD05B /* PassportPro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +229,11 @@
 			isa = PBXTargetDependency;
 			target = B6633104D69B8155814E265D /* MemoryPassport */;
 			targetProxy = 583AEA845FF185D23C937043 /* PBXContainerItemProxy */;
+		};
+		E1C729014F34A86BE108AEF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6633104D69B8155814E265D /* MemoryPassport */;
+			targetProxy = 139100CBB24ED442FAC18858 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -222,6 +293,23 @@
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
+		};
+		3A62FDEAA4AE39F35B26D189 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vano.PassportTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemoryPassport.app/MemoryPassport";
+			};
+			name = Debug;
 		};
 		7355BB2C59D0BDB7E437FACF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -341,6 +429,23 @@
 			};
 			name = Debug;
 		};
+		C84EC572AB6218E6ABA7099F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vano.PassportTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemoryPassport.app/MemoryPassport";
+			};
+			name = Release;
+		};
 		FF55F763F424454CAF9F95DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -370,6 +475,15 @@
 			buildConfigurations = (
 				BCE095A9C1C9BAD2925E1CF7 /* Debug */,
 				FF55F763F424454CAF9F95DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		50085E818DB7D2768E2E5B25 /* Build configuration list for PBXNativeTarget "PassportTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A62FDEAA4AE39F35B26D189 /* Debug */,
+				C84EC572AB6218E6ABA7099F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

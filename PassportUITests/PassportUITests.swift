@@ -1,6 +1,20 @@
 import XCTest
 
 final class PassportUITests: XCTestCase {
+    func testProExplainsAvailabilityAndKeepsRestoreVisible() {
+        let app = XCUIApplication()
+        app.launch()
+        app.tabBars.buttons["Sources"].tap()
+        app.swipeUp()
+        app.buttons["View Pro plan"].tap()
+        XCTAssertTrue(app.staticTexts["A bigger notebook."].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["Restore purchases"].exists)
+        let screenshot = XCTAttachment(screenshot: app.screenshot())
+        screenshot.name = "Pro availability"
+        screenshot.lifetime = .keepAlways
+        add(screenshot)
+        app.buttons["Done"].tap()
+    }
     func testMemorySurvivesRelaunchAndExports() {
         let app = XCUIApplication()
         app.launch()

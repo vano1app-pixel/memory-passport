@@ -1,0 +1,17 @@
+{
+  "identifier": "PASSPORTPROQA",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": { "_developerTeamID": "36RZ9VDHBC", "_storefront": "IRL", "_locale": "en_GB" },
+  "subscriptionGroups": [{
+    "id": "passport-pro", "localizations": [], "name": "Passport Pro",
+    "subscriptions": [{
+      "adHocOffers": [], "codeOffers": [], "displayPrice": "7.50", "familyShareable": false,
+      "groupNumber": 1, "internalID": "PASSPORTMONTHLYQA",
+      "localizations": [{"description": "Keep adding memories beyond the free 30-memory limit.", "displayName": "Passport Pro Monthly", "locale": "en_GB"}],
+      "productID": "com.vano.memorypassport.pro.monthly", "recurringSubscriptionPeriod": "P1M",
+      "referenceName": "Passport Pro Monthly QA", "subscriptionGroupID": "passport-pro", "type": "RecurringSubscription"
+    }]
+  }],
+  "version": { "major": 4, "minor": 0 }
+}

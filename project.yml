@@ -29,3 +29,28 @@ targets:
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
+  PassportTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: PassportTests
+      - path: PassportPro.storekit
+        buildPhase: resources
+    dependencies:
+      - target: MemoryPassport
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  MemoryPassport:
+    build:
+      targets:
+        MemoryPassport: all
+        PassportTests: [test]
+        PassportUITests: [test]
+    run:
+      config: Debug
+      storeKitConfiguration: PassportPro.storekit
+    test:
+      config: Debug
+      targets: [PassportTests, PassportUITests]

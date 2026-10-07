@@ -1,4 +1,5 @@
 build/
+build-store/
 *.xcuserstate
 xcuserdata/
 docs/qa/

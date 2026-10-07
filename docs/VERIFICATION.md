@@ -7,3 +7,7 @@ Verified by the UI test: add memory, select its project node in Map, show select
 Inspected iPhone populated map and iPad empty map renders. Screenshots: `map-iphone.png`, `map-ipad.png`, `context-iphone.png`. These include a synthetic QA note, not a connected account or real personal data.
 
 Unverified: physical device, large graphs, import file picker, share destination, VoiceOver, provider authentication, repository sync, payments and App Store release. No paid services enabled. No automatic AI semantic extraction. Graph edges reflect explicit project/source fields.
+
+## Subscription implementation
+
+Subscription build passed. Two UI tests passed in `build/QA-paywall.xcresult`: core memory/map/export/delete flow and Pro screen availability/restore visibility. Actual Pro screenshot inspected at `pro-iphone.png`. The three StoreKit transaction tests failed before purchase because the local StoreKit test service rejected configuration; iPhone and iPad retries returned the same failure. Purchase, restore, expiry and refund handling are implemented but remain unverified. No production subscription exists and no real charges occurred. Free memory limit is not enforced when no StoreKit product is available. Latest limit guard change was compiled by the subsequent iPad test build; transaction verification is still blocked.

@@ -112,6 +112,7 @@ struct MemoryMapView: View {
 struct SourcesView: View {
     @EnvironmentObject var notebook: Notebook
     @State private var draft: Memory?
+    @State private var showPro = false
     var body: some View {
         NavigationStack {
             List {
@@ -136,7 +137,12 @@ struct SourcesView: View {
                     Text("Automatic account connections are not available in this build. Signing in to an AI service does not necessarily allow access to past conversations.").font(.footnote)
                     Link("About ChatGPT sign-in", destination: URL(string: "https://developers.openai.com/siwc/quickstart")!)
                 }
+                Section("Passport Pro") {
+                    Button("View Pro plan") { showPro = true }
+                    Text("30 memories free. Existing memories stay accessible after cancellation.").font(.footnote)
+                }
             }.navigationTitle("Sources").sheet(item: $draft) { MemoryEditor(memory: $0) }
+            .sheet(isPresented: $showPro) { PassportProView() }
         }
     }
 }
